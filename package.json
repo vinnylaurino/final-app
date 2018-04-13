@@ -1,0 +1,9 @@
+{
+  "name": "the-best-scheduler",
+  "version": "1.0.0",
+  "description": "final project",
+  "main": "index.js",
+  "repository": "https://github.com/vinnylaurino/final.git",
+  "author": "Bria-Victor-Vinny",
+  "license": "MIT"
+}
