@@ -9,6 +9,12 @@ import EventModifier from './components/EventModifier';
 import Nav from './components/Nav';
 import Week from './components/Week';
 import Footer from './components/Footer';
+var nav = document.getElementById("topNav");
+var main = document.getElementById("main");
+var menu = document.getElementsByClassName("menuitems");
+var close = document.getElementById("closebtn");
+
+
 
 
 

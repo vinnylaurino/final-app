@@ -1,5 +1,314 @@
+/* COLORS:
+#bccdbe = light-grey
+#c2dde6 = light-blue
+#e6e9f0 = super-light-grey
+#431c5d = purple
+#e05915 = orange
+#cdd422 = green
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900');
+
+/* CSS RESET --------------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* UNIVERSAL STYLES --------------------------------------------------------*/
+body{
+  background-color: #cdd422;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  overflow:hidden;
+  transition: background-color .5s;
+
+}
+.App-header {
+  background-color: #cdd422;
+  height: 100px;
+  padding: 15px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+
+/* NAV --------------------------------------------------------*/
+
+/* Button styling */
+.menu-toggle {
+  display: inline-block;
+  padding: .75em 15px;
+  line-height: 1em;
+  font-size: 1.5em;
+  color: #431c5d;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  color: #c0c0c0;
+}
+
+/*
+ Default styles + Mobile first
+ Offscreen menu style
+*/
+.main-menu {
+  position: absolute;
+  left: -300px;
+  top: 0;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  transition: left 0.3s ease,
+              box-shadow 0.3s ease;
+  z-index: 999;
+}
+
+.main-menu ul {
+  list-style: none;
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  padding: 2.5em 0 0;
+  /* Hide shadow w/ -8px while 'closed' */
+  -webkit-box-shadow: -8px 0 8px rgba(0,0,0,.5);
+     -moz-box-shadow: -8px 0 8px rgba(0,0,0,.5);
+          box-shadow: -8px 0 8px rgba(0,0,0,.5);
+  min-height: 100%;
+  width: 300px;
+  background: #e6e9f0;
+}
+
+.main-menu a {
+  display: block;
+  padding: .75em 15px;
+  line-height: 1em;
+  font-size: 1em;
+  color: #431c5d;
+  text-decoration: none;
+
+}
+
+
+.main-menu a:hover,
+.main-menu a:focus {
+  background: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-menu .menu-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/*
+ On small devices, allow it to toggle...
+*/
+/*
+ :target for non-JavaScript
+ aria-expanded="true/false" will be for JavaScript
+*/
+.main-menu:target,
+.main-menu[aria-expanded="true"] {
+  left: 0;
+  outline: none;
+  -moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+  -webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+  box-shadow: 3px 0 12px rgba(0,0,0,.25);
+}
+
+.main-menu:target .menu-close,
+.main-menu[aria-expanded="true"] .menu-close {
+  z-index: 1001;
+}
+
+.main-menu:target ul,
+.main-menu[aria-expanded="true"] ul {
+  position: relative;
+  z-index: 1000;
+}
+
+/*
+ We could us `.main-menu:target:after`, but
+ it wouldn't be clickable.
+*/
+.main-menu:target + .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background: #000;
+  background: rgba(0,0,0,.85);
+  cursor: default;
+}
+
+@supports (position: fixed) {
+  .main-menu,
+  .main-menu:target + .backdrop,
+  .main-menu[aria-expanded="true"] + .backdrop {
+    position: fixed;
+  }
+}
+
+/*
+ Larger screen styling
+ Horizontal menu
+*/
+@media (min-width: 768px) {
+  .menu-toggle,
+  .main-menu .menu-close {
+    display: none;
+  }
+
+  /* Undo positioning of off-canvas menu */
+  .main-menu {
+    position: relative;
+    left: auto;
+    top: auto;
+    height: auto;
+  }
+
+  .main-menu ul {
+    display: flex;
+
+    /* Undo off-canvas styling */
+    padding: 0;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+    height: auto;
+    width: auto;
+    background: none;
+  }
+
+  .main-menu a {
+    color: #06c;
+    border: 0 !important; /* Remove borders from off-canvas styling */
+  }
+
+  .main-menu a:hover,
+  .main-menu a:focus {
+    background: none; /* Remove background from off-canvas styling */
+    color: #c00;
+  }
+}
+/* MAIN --------------------------------------------------------*/
+main{
+display: flex;
+}
+
+/* DAY ---------------------------------------------------------*/
+.dayContainer{
+  width: 80vw;
+  height: 50vh;
+  background-color: #ccc;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 50px 0;
+  box-shadow: 2px 4px 3px #888888;
+}
+.row{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.greeting{
+  width: 50%;
+  font-size: .75rem;
+  color: #431c5d;
+
+}
+.date{
+  width: 50%;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #666699;
+}
+
+.event-container{
+  width: 100%;
+  padding-top: 30px;
+  text-align: center;
+  font-size: .8rem;
+
+}
+.event-container h3{
+  padding: 20px 0;
+  color: #aaa;
+}
+.events{
+  width: 70%;
+  margin: 0 auto;
+}
+ul.events li{
+  background-color: #e6e9f0;
+  line-height: 3rem;
+  border-radius: 3px;
+  margin: 20px 0;
+  box-shadow: 1px 3px 2px #888888;
+}
+
+/* footer ------------------------------------------ */
+footer{
+  position: fixed;
+  bottom: 0;
+  border-top: 2px #000 solid;
+  width: 100%;
+  height: 15vh;
+  text-align: center;
+
+}
+footer a{
+  text-decoration: none;
+  color: #000;
+}
+.quick-links{
+  padding: 20px 0;
 }
