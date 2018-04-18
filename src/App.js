@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Nav from "./components/Nav";
 import './App.css';
+import Eventful from "./components/Eventful"
+
 
 
 class App extends Component {
@@ -14,7 +16,7 @@ class App extends Component {
 
         </main>
         <footer>
-
+          <Eventful/>
         </footer>
       </div>
     );
