@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import sampleUser from '../sample-user';
 import sampleCalendar from '../sample-calendar';
 class Day extends Component {
-
+  constructor(){
+    super()
+    this.state = {
+      dayData: sampleCalendar[1]
+    }
+  }
 
   formatDate() {
      let thisdate = new Date();
@@ -12,31 +17,41 @@ class Day extends Component {
        day: 'numeric'
      });
    };
-
-
    getDayOfTheWeek() {
      let todaysDay = new Date().toLocaleDateString('en-US', {weekday: 'long'});
-     console.log(todaysDay);
-     console.log(sampleCalendar[1].day);
-
-     if (todaysDay == sampleCalendar[1].day) {
-       let theResult = `<li>${sampleCalendar[1].morning_event[2]}</li><li>${sampleCalendar[1].afternoon_event[2]}</li><li>${sampleCalendar[1].evening_event[2]}</li>`
-       return theResult;
+     if (todaysDay == this.state.dayData.day){
+       return this.state.dayData.name
      }
-   }
-
+   };
+   dayEvents(){
+     let result = [];
+     for (let item in this.state.dayData.events){
+       result.push(<li>{this.state.dayData.events[item]}</li>)
+     }
+     return result
+    }
 
   render() {
-
+    console.log(sampleCalendar[0].events);
     const day = this.props.day;
 
 
     return (
       <div className="dayContainer">
-        <p>Hello, {sampleUser.first_name}</p>
-          <h2>{this.formatDate()}</h2>
-          <div>
-            <ul> {this.getDayOfTheWeek()}</ul>
+        <div className="row">
+          <div className="greeting">
+            <p>Hello, {sampleUser.first_name}</p>
+          </div>
+          <div className="date">
+            <h2>{this.formatDate()}</h2>
+          </div>
+        </div>
+
+          <div className="event-container">
+            <h3>{this.getDayOfTheWeek()}</h3>
+            <ul className="events">
+              {this.dayEvents()}
+            </ul>
           </div>
       </div>
     );
