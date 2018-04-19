@@ -21,18 +21,19 @@ class Favorites extends Component {
 
   buildCheckbox(list){
 
-    let inputList = list.map( (item) => {
-                            return(
-                              <div>
-                                <input  type="checkbox"
-                                        name={item.id}
-                                        value={item.id}
-                                        checked="true"
-                                        onChange={this.handleCheck} />
-                                <label htmlFor={item.id} >{item.name}</label>
-                              </div>
-                            )
-                          })
+    let inputList = []
+    list.forEach( (item) => {
+      inputList(
+        <div>
+          <input  type="checkbox"
+                  name={item.id}
+                  value={item.id}
+                  checked="true"
+                  onChange={this.handleCheck} />
+          <label htmlFor={item.id} >{item.name}</label>
+        </div>
+      )
+    })
     console.log(inputList);
   }
 
