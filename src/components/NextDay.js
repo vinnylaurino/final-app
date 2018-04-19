@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import sampleUser from '../sample-user';
 import sampleCalendar from '../sample-calendar';
-class Day extends Component {
+class NextDay extends Component {
   constructor(){
     super()
     this.state = {
-      dayData: sampleCalendar[1]
+      dayData: sampleCalendar[2]
     }
   }
 
@@ -57,4 +57,4 @@ class Day extends Component {
   }
 }
 
-export default Day;
+export default NextDay;

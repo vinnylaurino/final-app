@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import sampleUser from '../sample-user';
 import sampleCalendar from '../sample-calendar';
-class Day extends Component {
+class PrevDay extends Component {
   constructor(){
     super()
     this.state = {
-      dayData: sampleCalendar[1]
+      dayData: sampleCalendar[2]
     }
   }
 
   formatDate() {
      let thisdate = new Date();
-     return thisdate.toLocaleDateString('en-US',
+     return thisdate.toLocaleDateString ('en-US',
      {
        month: 'short',
        day: 'numeric'
@@ -42,7 +42,7 @@ class Day extends Component {
 
           </div>
           <div className="date">
-            <h2>{this.formatDate()}</h2>
+            <h2>{this.formatDate()-1}</h2>
           </div>
         </div>
 
@@ -57,4 +57,4 @@ class Day extends Component {
   }
 }
 
-export default Day;
+export default PrevDay;
