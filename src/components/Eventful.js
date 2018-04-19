@@ -16,11 +16,13 @@ class Eventful extends React.Component{
 
   formatDate() {
      let thisdate = new Date();
-     return thisdate.toLocaleDateString('en-US',
+     return
+      thisdate.toLocaleDateString('en-US',
      {
        month: 'short',
        day: 'numeric'
      });
+
    };
 
    formatDateQuery() {
@@ -30,6 +32,7 @@ class Eventful extends React.Component{
 
      return formattedDate;
    }
+
 
   setQuery(event){
     this.setState({
@@ -82,7 +85,7 @@ class Eventful extends React.Component{
   render(){
     return(
       <div>
-        <h1>Javascript Sample Page</h1>
+        <h1>Events in the Area</h1>
       <form onSubmit={this.search}>
           <input type="text" placeholder="Search event..." value={this.state.query}
           onChange={this.setQuery} />
