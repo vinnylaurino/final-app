@@ -13,6 +13,8 @@ class PrevDay extends Component {
 
   formatDate() {
      let thisdate = new Date();
+     thisdate.setDate(thisdate.getDate() - 1);
+
      return thisdate.toLocaleDateString ('en-US',
      {
        month: 'short',
