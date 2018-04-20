@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import sampleUser from '../sample-user';
 import sampleCalendar from '../sample-calendar';
+import { Link } from "react-router-dom";
+
 class NextDay extends Component {
   constructor(){
     super()
@@ -35,16 +37,20 @@ class NextDay extends Component {
 
 
     return (
-      <div className="dayContainer">
-        <div className="row">
-          <div className="greeting">
-            <p>Hello, {sampleUser.first_name}</p>
-
-          </div>
-          <div className="date">
-            <h2>{this.formatDate()}</h2>
-          </div>
+      <div className="week-container">
+        <div>
+          <Link to="/"><div className="prev-day-link"></div></Link>
         </div>
+        <div className="dayContainer">
+          <div className="row">
+            <div className="greeting">
+              <p>Hello, {sampleUser.first_name}</p>
+
+            </div>
+            <div className="date">
+              <h2>{this.formatDate()}</h2>
+            </div>
+          </div>
 
           <div className="event-container">
             <h3>{this.getDayOfTheWeek()}</h3>
@@ -52,6 +58,7 @@ class NextDay extends Component {
               {this.dayEvents()}
             </ul>
           </div>
+        </div>
       </div>
     );
   }

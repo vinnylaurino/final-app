@@ -98,8 +98,8 @@ body{
   left: -300px;
   top: 0;
   height: 100%;
-  overflow-y: scroll;
-  overflow-x: visible;
+  /* overflow-y: scroll;
+  overflow-x: visible; */
   transition: left 0.3s ease,
               box-shadow 0.3s ease;
   z-index: 999;
@@ -203,7 +203,7 @@ display: flex;
 }
 .week-container{
 display: flex;
-width: 100vw;
+width: 100%;
 position: relative;
 
 }
@@ -281,6 +281,9 @@ ul.events li{
   margin: 20px 0;
   box-shadow: 1px 3px 2px #888888;
 }
+.hidden{
+	display:none;
+}
 
 /* footer ------------------------------------------ */
 footer{
@@ -299,9 +302,24 @@ footer a{
 .quick-links{
   padding: 20px 0;
 }
-div#root {
+/* div#root {
 	overflow-x: scroll !important;
+} */
+html{
+	overflow-x: scroll;
 }
-html {
-  overflow-y: scroll;
+.eventful div {
+	padding: 10px 0;
+}
+.eventful header h3{
+	font-weight: 500;
+	font-size: 1.2rem;
+	color: #e6e9f0;
+}
+.eventful p{
+	font-size: .8rem;
+}
+
+.eventful div:last-child{
+	border-bottom: 1px #ccc solid;
 }

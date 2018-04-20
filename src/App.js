@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import Nav from "./components/Nav";
-import Week from "./components/Week";
-import Footer from "./components/Footer";
-import sample_user from "./sample-user"
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Favorites from "./components/Favorites.js"
 import './App.css';
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import Eventful from "./components/Eventful"
-
-
-
+import Day from "./components/Day";
+import NextDay from "./components/NextDay";
+import PrevDay from "./components/PrevDay";
+import Favorites from "./components/Favorites"
+import sample_user from "./sample-user"
 
 class App extends Component {
 
@@ -51,7 +50,9 @@ class App extends Component {
               <Nav />
             </header>
             <main className="mainWrapper">
-              <Route exact path="/" component={Week} />
+              <Route exact path="/" component={Day} />
+              <Route path="/NextDay" component={NextDay} />
+              <Route path="/PrevDay" component={PrevDay} />
               <Route path="/Favorites" render={ ()=>{
                   return <Favorites
                           list={this.state.favorites}

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-
-
 class Nav extends Component {
   render() {
     return (
@@ -15,7 +13,7 @@ class Nav extends Component {
             <li><Link to="">My Account</Link></li>
             <li><Link to="">Calendars</Link></li>
             <li><Link to="">Events Near Me</Link></li>
-            <li><Link to="/Favorites">Favorites</Link></li>
+            // <li><Link to="/Favorites">Favorites</Link></li>
             <li><Link to="/">Log Out</Link></li>
           </ul>
         </nav>

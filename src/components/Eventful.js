@@ -92,14 +92,15 @@ class Eventful extends React.Component{
           <input type="submit" />
         </form>
         <hr />
-        <div>
+        <div className="eventful">
           {this.state.events.map( (event, index) => {
             return(
               <Event
                 key={index}
                 description={event.description}
                 start_time={event.start_time}
-                title={event.title} />
+                title={event.title}
+                />
             )
           })}
           </div>
