@@ -13,12 +13,13 @@ class Nav extends Component {
             <li><Link to="">My Account</Link></li>
             <li><Link to="">Calendars</Link></li>
             <li><Link to="">Events Near Me</Link></li>
-            // <li><Link to="/Favorites">Favorites</Link></li>
+            {/* <li><Link to="/Favorites">Favorites</Link></li> */}
             <li><Link to="/">Log Out</Link></li>
           </ul>
         </nav>
         <a href="#main-menu-toggle" class="backdrop" tabindex="-1"></a>
-        <img src="" class="logo" alt="logo"/>
+        {/* <img src="" class="logo" alt="logo"/>*/}
+        Remindify
       </div>
     );
   }
