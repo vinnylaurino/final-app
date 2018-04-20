@@ -7,8 +7,10 @@ import Eventful from "./components/Eventful"
 import Day from "./components/Day";
 import NextDay from "./components/NextDay";
 import PrevDay from "./components/PrevDay";
-import Favorites from "./components/Favorites"
-import sample_user from "./sample-user"
+import Favorites from "./components/Favorites";
+import Login from "./components/Login"
+import sample_user from "./sample-user";
+
 
 class App extends Component {
 
@@ -51,6 +53,7 @@ class App extends Component {
             </header>
             <main className="mainWrapper">
               <Route exact path="/" component={Day} />
+              <Route path="/login" component={Login} />
               <Route path="/home" component={Day} />
               <Route path="/NextDay" component={NextDay} />
               <Route path="/PrevDay" component={PrevDay} />

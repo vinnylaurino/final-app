@@ -14,7 +14,7 @@ class Nav extends Component {
             <li><Link to="">Calendars</Link></li>
             <li><Link to="">Events Near Me</Link></li>
             {/* <li><Link to="/Favorites">Favorites</Link></li> */}
-            <li><Link to="/">Log Out</Link></li>
+            <li><Link to="/Login">Log Out</Link></li>
           </ul>
         </nav>
         <a href="#main-menu-toggle" class="backdrop" tabindex="-1"></a>
