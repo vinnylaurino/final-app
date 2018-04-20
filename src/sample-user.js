@@ -2,7 +2,7 @@
 const sample_user = {
           first_name: "John",
           last_name: "Doe",
-          interests: ["Yoga", "Free", "Karate"]
+          favorites: ["Yoga", "Free", "Karate"]
         }
 
 
