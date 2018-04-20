@@ -14,7 +14,7 @@ class NextDay extends Component {
   formatDate() {
      let thisdate = new Date();
      thisdate.setDate(thisdate.getDate() + 1);
-     
+
      return thisdate.toLocaleDateString('en-US',
      {
        month: 'short',
@@ -46,8 +46,7 @@ class NextDay extends Component {
         <div className="dayContainer">
           <div className="row">
             <div className="greeting">
-              <p>Hello, {sampleUser.first_name}</p>
-
+              <p>You have a full schedule.</p>
             </div>
             <div className="date">
               <h2>{this.formatDate()}</h2>
@@ -55,7 +54,6 @@ class NextDay extends Component {
           </div>
 
           <div className="event-container">
-            <h3>{this.getDayOfTheWeek()}</h3>
             <ul className="events">
               {this.dayEvents()}
             </ul>

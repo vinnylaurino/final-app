@@ -52,7 +52,6 @@ class PrevDay extends Component {
           </div>
 
           <div className="event-container">
-            <h3>{this.getDayOfTheWeek()}</h3>
             <ul className="events">
               {this.dayEvents()}
             </ul>

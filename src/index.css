@@ -310,6 +310,9 @@ html{
 }
 .eventful div {
 	padding: 10px 0;
+	max-width: 500px;
+	margin: 0 auto;
+	margin: 0 5px;
 }
 .eventful header h3{
 	font-weight: 500;

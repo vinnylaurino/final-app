@@ -45,7 +45,7 @@ class Day extends Component {
           <div className="row">
             <div className="greeting">
               <p>Hello, {sampleUser.first_name}</p>
-
+              <p>You have some free time, why don't you look something up?</p>
             </div>
             <div className="date">
               <h2>{this.formatDate()}</h2>
