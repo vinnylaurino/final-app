@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import sampleUser from '../sample-user';
 import sampleCalendar from '../sample-calendar';
 import { Link } from "react-router-dom";
+import $ from "jquery";
 
 class Day extends Component {
   constructor(){
@@ -26,9 +27,10 @@ class Day extends Component {
    dayEvents(){
      let result = [];
      for (let item in this.state.dayData.events){
-       result.push(<li>{this.state.dayData.events[item]}</li>)
-     }
-     return result
+
+         result.push(<li>{this.state.dayData.events[item]}</li>)
+        }
+    return result
     }
 
   render() {
@@ -39,7 +41,7 @@ class Day extends Component {
     return (
       <div className="week-container">
         <div>
-          <Link to="/PrevDay"><div className="prev-day-link"></div></Link>
+          <Link to="/PrevDay"><div className="prev-day-link"><i class="icon fa fa-caret-left"></i></div></Link>
         </div>
         <div className="dayContainer">
           <div className="row">
@@ -56,11 +58,12 @@ class Day extends Component {
               <h3>{this.getDayOfTheWeek()}</h3>
               <ul className="events">
                 {this.dayEvents()}
+
               </ul>
             </div>
         </div>
         <div>
-          <Link to="/NextDay"><div className="next-day-link"></div></Link>
+          <Link to="/NextDay"><div className="next-day-link"><i class="icon fa fa-caret-right"></i></div></Link>
         </div>
       </div>
     );

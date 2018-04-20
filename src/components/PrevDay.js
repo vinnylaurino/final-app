@@ -43,7 +43,7 @@ class PrevDay extends Component {
         <div className="dayContainer">
           <div className="row">
             <div className="greeting">
-              <p>Hello, {sampleUser.first_name}</p>
+              <p>You have a full schedule.</p>
 
             </div>
             <div className="date">
@@ -58,7 +58,7 @@ class PrevDay extends Component {
           </div>
         </div>
         <div>
-          <Link to="/"><div className="next-day-link"></div></Link>
+          <Link to="/"><div className="next-day-link"><i class="icon fa fa-caret-right"></i></div></Link>
         </div>
       </div>
     );

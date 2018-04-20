@@ -51,6 +51,7 @@ class App extends Component {
             </header>
             <main className="mainWrapper">
               <Route exact path="/" component={Day} />
+              <Route path="/home" component={Day} />
               <Route path="/NextDay" component={NextDay} />
               <Route path="/PrevDay" component={PrevDay} />
               <Route path="/Favorites" render={ ()=>{

@@ -41,7 +41,7 @@ class NextDay extends Component {
     return (
       <div className="week-container">
         <div>
-          <Link to="/"><div className="prev-day-link"></div></Link>
+          <Link to="/"><div className="prev-day-link"><i class="icon fa fa-caret-left"></i></div></Link>
         </div>
         <div className="dayContainer">
           <div className="row">

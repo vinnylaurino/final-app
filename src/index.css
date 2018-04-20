@@ -56,15 +56,17 @@ table {
 }
 /* UNIVERSAL STYLES --------------------------------------------------------*/
 body{
-  background-color: #cdd422;
+	background: linear-gradient(to bottom, #ef8108, #cc104d);
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   overflow:hidden;
   transition: background-color .5s;
+	/* height: 100vh; */
 
 }
 .App-header {
-  background-color: #cdd422;
+  /* background-color: #cdd422; */
+	background: transparent;
   height: 100px;
   padding: 15px;
   color: white;
@@ -72,7 +74,14 @@ body{
   align-items: center;
 }
 
-
+h1{
+ color: #fff;
+ font-size: 1.2rem;
+ font-weight: 500;
+}
+*:focus{
+	outline: none;
+}
 /* NAV --------------------------------------------------------*/
 
 /* Button styling */
@@ -81,12 +90,12 @@ body{
   padding: .75em 15px;
   line-height: 1em;
   font-size: 1.5em;
-  color: #431c5d;
+  color: #fff;
 }
 
 .menu-toggle:hover,
 .menu-toggle:focus {
-  color: #c0c0c0;
+  color: #fff;
 }
 
 /*
@@ -115,7 +124,7 @@ body{
           box-shadow: -8px 0 8px rgba(0,0,0,.5);
   min-height: 100%;
   width: 300px;
-  background: #e6e9f0;
+  background-color: #e6e9f0;
 }
 
 .main-menu a {
@@ -125,10 +134,7 @@ body{
   font-size: 1em;
   color: #431c5d;
   text-decoration: none;
-
 }
-
-
 .main-menu a:hover,
 .main-menu a:focus {
   background: #fff;
@@ -142,9 +148,7 @@ body{
   top: 0;
 }
 
-/*
- On small devices, allow it to toggle...
-*/
+
 /*
  :target for non-JavaScript
  aria-expanded="true/false" will be for JavaScript
@@ -173,8 +177,8 @@ body{
  We could us `.main-menu:target:after`, but
  it wouldn't be clickable.
 */
-.main-menu:target + .backdrop,
-.main-menu[aria-expanded="true"] + .backdrop {
+.main-menu:target + .backdrop + li + a,
+.main-menu[aria-expanded="true"] + .backdrop + a{
   position: absolute;
   display: block;
   content: "";
@@ -196,7 +200,9 @@ body{
   }
 }
 
-
+.logo{
+	width: 200px;
+}
 /* MAIN --------------------------------------------------------*/
 main{
 display: flex;
@@ -210,53 +216,63 @@ position: relative;
 .prev-day-link{
 	position: relative;
 	left: 0;
-	height: 50vh;
-	background-color: #ccc;
+	height: 45vh;
+	background-color: #3e0038;
 	width:30px;
 	margin-right: 10px;
 	padding: 50px 0;
-	box-shadow: 2px 4px 3px #888888;
 	border-radius: 0 10px 10px 0;
 }
 .next-day-link{
 	position: relative;
 	right: 0;
-	height: 50vh;
-	background-color: #ccc;
+	height: 45vh;
+	background-color: #3e0038;
 	width:30px;
 	margin-left: 10px;
 	padding: 50px 0;
-	box-shadow: 2px 4px 3px #888888;
 	border-radius: 10px 0 0 10px;
+}
+.icon{
+	font-size: 3rem;
+	position: relative;
+	top: 40%;
+	padding: 5px;
+	color: #ef8108;
+}
+.icons{
+	font-size: 2rem;
 }
 /* DAY ---------------------------------------------------------*/
 
 .dayContainer{
+	background: linear-gradient(to bottom, #730068, #3e0038);
   width: 80%;
-  height: 50vh;
-  background-color: #ccc;
+  height: 45vh;
   margin: 0 auto;
   border-radius: 10px;
   padding: 50px 0;
-  box-shadow: 2px 4px 3px #888888;
+
 }
 .row{
   width: 100%;
   display: flex;
   align-items: center;
   text-align: center;
+	padding-bottom: 10px;
+
 }
 .greeting{
   width: 50%;
-  font-size: .75rem;
-  color: #431c5d;
+  font-size: .6rem;
+  color: #fff;
 
 }
 .date{
   width: 50%;
   font-size: 2rem;
   font-weight: 700;
-  color: #666699;
+  color: #ef8108;
 }
 
 .event-container{
@@ -275,11 +291,12 @@ position: relative;
   margin: 0 auto;
 }
 ul.events li{
-  background-color: #e6e9f0;
+	color: #fff;
+  border: 2px solid #fff;
   line-height: 3rem;
   border-radius: 3px;
   margin: 20px 0;
-  box-shadow: 1px 3px 2px #888888;
+
 }
 .hidden{
 	display:none;
@@ -288,7 +305,7 @@ ul.events li{
 /* footer ------------------------------------------ */
 footer{
   bottom: 0;
-  border-top: 2px #000 solid;
+
 	margin-top: 20px;
 	padding-top: 20px;
   width: 100%;
@@ -302,27 +319,57 @@ footer a{
 .quick-links{
   padding: 20px 0;
 }
-/* div#root {
+div#root {
 	overflow-x: scroll !important;
-} */
+}
 html{
 	overflow-x: scroll;
 }
-.eventful div {
+
+.event-form{
+
+	overflow-x: scroll;
+}
+.event-form form{
+display: flex;
+align-items: center;
+padding: 10px;
+}
+
+.search{
+	height:40px;
+	border: 3px solid #fff;
+	width: 70%;
+}
+.submit{
+	height:50px;
+	border: 3px solid #fff;
+	font-size: 1rem;
+	text-transform: uppercase;
+	width: 30%;
+	margin-left: 10px;
+	background: transparent;
+	color: #fff;
+}
+.submit:active{
+	background-color: #730068;
+}
+.eventful {
 	padding: 10px 0;
 	max-width: 500px;
 	margin: 0 auto;
-	margin: 0 5px;
 }
 .eventful header h3{
+	padding-bottom: 5px;
+	margin-top: 5px;
 	font-weight: 500;
 	font-size: 1.2rem;
 	color: #e6e9f0;
 }
 .eventful p{
 	font-size: .8rem;
+	margin-bottom: 7px;
 }
-
 .eventful div:last-child{
 	border-bottom: 1px #ccc solid;
 }

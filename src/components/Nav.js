@@ -18,8 +18,8 @@ class Nav extends Component {
           </ul>
         </nav>
         <a href="#main-menu-toggle" class="backdrop" tabindex="-1"></a>
-        {/* <img src="" class="logo" alt="logo"/>*/}
-        Remindify
+        <img src="https://s9.postimg.cc/btwaonu0v/remidify-logo-light.png" class="logo" alt="logo"/>
+
       </div>
     );
   }

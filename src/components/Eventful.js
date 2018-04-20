@@ -84,14 +84,13 @@ class Eventful extends React.Component{
 
   render(){
     return(
-      <div>
-        <h1>Events in the Area</h1>
+      <div className="event-form">
+        <h1>Events in the area</h1>
       <form onSubmit={this.search}>
-          <input type="text" placeholder="Search event..." value={this.state.query}
+          <input className="search" type="text" placeholder="Search event..." value={this.state.query}
           onChange={this.setQuery} />
-          <input type="submit" />
+        <input className="submit" type="submit" />
         </form>
-        <hr />
         <div className="eventful">
           {this.state.events.map( (event, index) => {
             return(
