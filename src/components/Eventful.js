@@ -68,7 +68,7 @@ class Eventful extends React.Component{
       return storage
     }
 
-    let url = `http://api.eventful.com/json/events/search?app_key=BCZLrFTGWmvwN54g&keywords=${this.state.query}&location=Miami&date=${this.formatDateQuery()}`
+    let url = `https://api.eventful.com/json/events/search?app_key=BCZLrFTGWmvwN54g&keywords=${this.state.query}&location=Miami&date=${this.formatDateQuery()}`
 
 
 
